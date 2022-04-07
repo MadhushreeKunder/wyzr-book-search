@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../logo.svg";
 
 export function Home() {
@@ -12,9 +13,11 @@ export function Home() {
         </h2>
       </div>
       <div className="basis-1/2 flex justify-center items-center">
-        <button className=" rounded-lg font-bold text-3xl p-4 bg-primaryCoral text-white">
-          Sign in with google
-        </button>
+        <Link to="/search">
+          <button className=" rounded-lg font-bold text-3xl p-4 bg-primaryCoral text-white">
+            Sign in with google
+          </button>
+        </Link>
       </div>
     </div>
   );

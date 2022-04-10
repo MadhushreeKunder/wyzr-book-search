@@ -9,7 +9,6 @@ export function DataProvider({ children }) {
   const [display, setDisplay] = useState([]);
 
   const handleBookSearchInput = (e) => {
-    console.log(e.target.value);
     const book = e.target.value;
     setBook(book);
   };

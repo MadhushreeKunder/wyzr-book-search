@@ -16,15 +16,26 @@ export function BookDetails() {
 
   return (
     <div className="max-w-screen-lg p-4 m-auto ">
-      BookDetails
-      <div className="flex mt-12 mb-4 justify-between">
-        <img
-          className="h-[24rem] w-[32rem] mr-4"
-          src={bookDetail.volumeInfo.imageLinks.thumbnail}
-          alt={bookDetail.volumeInfo.title}
-        />
-        <div className="ml-4 flex flex-col items-start text-left gap-4">
-          <h1 className="font-bold text-5xl ">{bookDetail.volumeInfo.title}</h1>
+      <p className="font-bold text-3xl text-primaryCoral">BookDetails</p>
+      <div className="flex mt-12 mb-4 justify-between flex-col md:flex-row">
+        {bookDetail.volumeInfo.imageLinks ? (
+          <img
+            className="h-[24rem] w-[32rem] mr-4"
+            src={bookDetail.volumeInfo.imageLinks.thumbnail}
+            alt={bookDetail.volumeInfo.title}
+          />
+        ) : (
+          <img
+            className="h-[24rem] w-[32rem] mr-4"
+            src="https://cdn-d8.nypl.org/s3fs-public/blogs/J5LVHEL.jpg"
+            alt={bookDetail.volumeInfo.title}
+          />
+        )}
+
+        <div className="md:ml-4 flex flex-col items-start text-left gap-4">
+          <h1 className="font-bold text-5xl mt-4">
+            {bookDetail.volumeInfo.title}
+          </h1>
           <h2 className="font-bold text-3xl text-slate-500 ">
             Author(s): {bookDetail.volumeInfo.authors}
           </h2>
@@ -34,7 +45,9 @@ export function BookDetails() {
           </h3>
           <p className="text-slate-800 text-lg ">
             {" "}
-            {he.decode(bookDetail.searchInfo.textSnippet)}{" "}
+            {bookDetail.searchInfo
+              ? he.decode(bookDetail.searchInfo.textSnippet)
+              : "Text Snippet is not available"}
           </p>
           {bookDetail.saleInfo.retailPrice === undefined ? (
             <p className="text-xl text-slate-700 bg-slate-100 p-2 ">E-book</p>
@@ -55,6 +68,7 @@ export function BookDetails() {
           )}
         </div>
       </div>
+      <hr />
       <div className=" mt-10 text-left">
         <span className=" font-semibold text-lg text-slate-800">
           {" "}

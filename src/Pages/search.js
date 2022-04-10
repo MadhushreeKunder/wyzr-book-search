@@ -2,39 +2,10 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { API_KEY } from ".";
+import { useData } from "../contexts/dataContext";
 
 export function Search() {
-  const [book, setBook] = useState("");
-  const [display, setDisplay] = useState([]);
-
-  const handleBookSearchInput = (e) => {
-    console.log(e.target.value);
-    const book = e.target.value;
-    setBook(book);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(book);
-    (async () => {
-      try {
-        await axios
-          .get(
-            "https://www.googleapis.com/books/v1/volumes?q=" +
-              book +
-              "&key=" +
-              API_KEY +
-              "&maxResults=20"
-          )
-          .then((data) => {
-            console.log(data);
-            setDisplay(data.data.items);
-          });
-      } catch (error) {
-        console.log("loading... error");
-      }
-    })();
-  };
+  const { display, handleBookSearchInput, handleSubmit } = useData();
 
   return (
     <div className="flex justify-center max-w-screen-lg  m-auto mb-4">

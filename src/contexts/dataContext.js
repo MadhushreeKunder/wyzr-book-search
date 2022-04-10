@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { API_KEY } from "../Pages";
 
 export const DataContext = createContext();
@@ -7,6 +7,8 @@ export const DataContext = createContext();
 export function DataProvider({ children }) {
   const [book, setBook] = useState();
   const [display, setDisplay] = useState([]);
+  const [isError, setError] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const handleBookSearchInput = (e) => {
     const book = e.target.value;
@@ -16,6 +18,8 @@ export function DataProvider({ children }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(book);
+    setLoader(true);
+
     (async () => {
       try {
         await axios
@@ -30,8 +34,11 @@ export function DataProvider({ children }) {
             console.log(data);
             setDisplay(data.data.items);
           });
+        setLoader(false);
       } catch (error) {
+        setError(true);
         console.log("loading... error");
+        setLoader(false);
       }
     })();
   };
@@ -40,11 +47,11 @@ export function DataProvider({ children }) {
     <DataContext.Provider
       value={{
         book,
-        setBook,
         display,
-        setDisplay,
         handleBookSearchInput,
         handleSubmit,
+        isError,
+        loader,
       }}
     >
       {children}

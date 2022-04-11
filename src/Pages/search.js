@@ -15,7 +15,7 @@ export function Search() {
   } = useData();
 
   return (
-    <div className="flex justify-center max-w-screen-lg  m-auto mb-4">
+    <div className="max-w-screen-lg  m-auto mb-4 px-4">
       {isError && (
         <span>
           Error occurred!{" "}
@@ -26,25 +26,33 @@ export function Search() {
       )}
 
       <div className=" relative">
-        <form
-          className="sticky top-0 py-4 backdrop-blur bg-white/30 "
-          onSubmit={handleSubmit}
-        >
-          <input
-            value={book}
-            type="text"
-            placeholder="Search your fav books.."
-            className="border-2 p-4 backdrop-blur-lg bg-white/30 "
-            onChange={handleBookSearchInput}
-          />
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className="ml-4 px-4 py-2 rounded-md text-white bg-primaryCoral font-medium uppercase mt-4"
+        <div className="flex items-center">
+          <Link to="/" className=" text-2xl">
+            <button>
+              <i className="fas fa-angle-left"></i>
+            </button>
+          </Link>
+
+          <form
+            className="sticky top-0 py-4 backdrop-blur bg-white/30 m-auto "
+            onSubmit={handleSubmit}
           >
-            Search{" "}
-          </button>
-        </form>
+            <input
+              value={book}
+              type="text"
+              placeholder="Search your fav books.."
+              className="border-2 p-4 backdrop-blur-lg bg-white/30 "
+              onChange={handleBookSearchInput}
+            />
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className="ml-4 px-4 py-2 rounded-md text-white bg-primaryCoral font-medium uppercase mt-4"
+            >
+              Search{" "}
+            </button>
+          </form>
+        </div>
         {loader && <span>Loading...</span>}
         {isError && (
           <span>
@@ -54,7 +62,7 @@ export function Search() {
             </Link>{" "}
           </span>
         )}
-        <div className="justify-center flex flex-wrap md:justify-between mx-4  ">
+        <div className="justify-center flex flex-wrap md:justify-between">
           {display.map((book) => (
             <Link to={`/book/${book.id}`} key={book.id}>
               {/* <a href={book.volumeInfo.previewLink}> */}

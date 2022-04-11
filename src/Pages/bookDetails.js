@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router";
 import { useData } from "../contexts/dataContext";
 import he from "he";
+import { Link } from "react-router-dom";
 
 export function BookDetails() {
   let { id } = useParams();
@@ -15,8 +16,17 @@ export function BookDetails() {
   console.log(bookDetail);
 
   return (
-    <div className="max-w-screen-lg p-4 m-auto ">
-      <p className="font-bold text-3xl text-primaryCoral">BookDetails</p>
+    <div className="max-w-screen-lg p-4 m-auto">
+      <div className="flex items-center justify-center">
+        <Link to="/search" className=" justify-self-start text-2xl">
+          <button>
+            <i class="fas fa-angle-left"></i>
+          </button>
+        </Link>
+        <p className="font-bold text-3xl text-primaryCoral m-auto">
+          BookDetails
+        </p>
+      </div>
       <div className="flex mt-12 mb-4 justify-between flex-col md:flex-row">
         {bookDetail.volumeInfo.imageLinks ? (
           <img

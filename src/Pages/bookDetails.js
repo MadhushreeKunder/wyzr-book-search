@@ -17,10 +17,10 @@ export function BookDetails() {
 
   return (
     <div className="max-w-screen-lg p-4 m-auto">
-      <div className="flex items-center justify-center">
-        <Link to="/search" className=" justify-self-start text-2xl">
+      <div className="flex items-center ">
+        <Link to="/search" className=" text-2xl">
           <button>
-            <i class="fas fa-angle-left"></i>
+            <i className="fas fa-angle-left"></i>
           </button>
         </Link>
         <p className="font-bold text-3xl text-primaryCoral m-auto">

@@ -59,6 +59,8 @@ export function DataProvider({ children }) {
   );
 }
 
+// only one api call is made, hence the values are stored in context, so that both the search feature and book details page can access it.
+
 export function useData() {
   return useContext(DataContext);
 }

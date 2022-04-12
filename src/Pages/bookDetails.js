@@ -5,14 +5,15 @@ import he from "he";
 import { Link } from "react-router-dom";
 
 export function BookDetails() {
-  let { id } = useParams();
+
+  let { id } = useParams();  //gets the book id from the url
   const { display } = useData();
 
   function getBookDetails(data, id) {
-    return data.find((book) => book.id === id);
+    return data.find((book) => book.id === id);  // finds the current book from the list of books, from the api call.
   }
 
-  const bookDetail = getBookDetails(display, id);
+  const bookDetail = getBookDetails(display, id);  //stores current book details
   console.log(bookDetail);
 
   return (

@@ -1,7 +1,5 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { API_KEY } from ".";
 import { useData } from "../contexts/dataContext";
 
 export function Search() {
@@ -12,18 +10,11 @@ export function Search() {
     loader,
     isError,
     book,
-  } = useData();
+  } = useData();  //only 1 api call is made so, data is put into context and taken from there.
+
 
   return (
     <div className="max-w-screen-lg  m-auto mb-4 px-4">
-      {/* {isError && (
-        <span>
-          Error occurred!{" "}
-          <Link to="/" className="underline cursor-pointer">
-            Go back
-          </Link>{" "}
-        </span>
-      )} */}
 
       <div className=" relative">
         <div className="flex items-center">
@@ -65,7 +56,7 @@ export function Search() {
         <div className="justify-center flex flex-wrap md:justify-between">
           {display.map((book) => (
             <Link to={`/book/${book.id}`} key={book.id}>
-              {/* <a href={book.volumeInfo.previewLink}> */}
+              {/* <a href={book.volumeInfo.previewLink}> */}  {/**can be used to get the google book details link */}
               <div className="border-2 w-44 p-2 my-4  text-left">
                 {book.volumeInfo.imageLinks ? (
                   <img

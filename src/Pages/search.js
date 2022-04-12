@@ -16,14 +16,14 @@ export function Search() {
 
   return (
     <div className="max-w-screen-lg  m-auto mb-4 px-4">
-      {isError && (
+      {/* {isError && (
         <span>
           Error occurred!{" "}
           <Link to="/" className="underline cursor-pointer">
             Go back
           </Link>{" "}
         </span>
-      )}
+      )} */}
 
       <div className=" relative">
         <div className="flex items-center">
@@ -47,7 +47,7 @@ export function Search() {
             <button
               type="submit"
               onClick={handleSubmit}
-              className="ml-4 px-4 py-2 rounded-md text-white bg-primaryCoral font-medium uppercase mt-4"
+              className="px-4 py-2 rounded-md text-white bg-primaryCoral font-medium uppercase md:mt-4 md:ml-4 "
             >
               Search{" "}
             </button>

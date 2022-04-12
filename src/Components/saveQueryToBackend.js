@@ -1,9 +1,11 @@
+// work in progress 
+
 // import { useData } from "../src/contexts/dataContext";
 
 // var mongo = require("mongodb");
 // const { MongoClient } = require("mongodb");
 
-// const uri = `mongodb+srv://MadhushreeKunder:mongoDB%237589@wyzr-cluster.44oxx.mongodb.net/test`;
+// const uri = `mongodb+srv://MadhushreeKunder:mongoDB${mongoPassword}@wyzr-cluster.44oxx.mongodb.net/test`;
 
 // const client = new MongoClient(uri, {
 //   useNewUrlParser: true,

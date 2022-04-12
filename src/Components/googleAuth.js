@@ -1,28 +1,24 @@
 import { useState } from "react";
 import { GoogleLogin } from "react-google-login";
-import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
 const clientId =
   "954832916377-thvj35j5mogu49ktj08cnc5a2oj8rado.apps.googleusercontent.com";
 
 function Login() {
-  // const navigate = useNavigate();
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState("");  //will contain the email id of the current user -> to store queries in DB
 
   const onSuccess = (res, e) => {
     console.log("Login success! Current user:", res.profileObj.email);
-    setUser(res.profileObj.email);
-    // e.preventDefault();
-    // navigate("/search");
+    setUser(res.profileObj.email);  //stores current user's email
   };
 
   const onFailure = (res) => {
-    console.log("Login failed! res: ", res);
+    console.log("Login failed! res: ", res);  //failure state
   };
 
   const onLogoutSuccess = () => {
-    console.log("log out successful");
+    console.log("log out successful");  //for signing out the user
   };
 
   return (

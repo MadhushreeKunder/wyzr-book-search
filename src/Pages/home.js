@@ -36,8 +36,7 @@ export function Home() {
             Search books
           </button>
         </Link> */}
-        {/* <GoogleAuth /> */}
-        {/* <GoogleAuthNew/> */}
+
         <Login/>
       </div>
     </div>

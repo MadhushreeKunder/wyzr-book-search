@@ -45,11 +45,11 @@ function Login() {
               Search books
             </button>
           </Link>
-          <GoogleLogout
+          {/* <GoogleLogout
             clientId={clientId}
             buttonText={"Sign Out"}
             onLogoutSuccess={onLogoutSuccess}
-          />
+          /> */}
         </>
       )}
     </div>

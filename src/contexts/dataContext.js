@@ -26,8 +26,8 @@ export function DataProvider({ children }) {
           .get(
             "https://www.googleapis.com/books/v1/volumes?q=" +
               book +
-              "&key=" +
-              API_KEY +
+              // "&key=" +
+              // API_KEY +
               "&maxResults=20"
           )
           .then((data) => {

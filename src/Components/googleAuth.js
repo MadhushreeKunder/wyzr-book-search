@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { GoogleLogin } from "react-google-login";
-import { GoogleLogout } from "react-google-login";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -8,7 +7,7 @@ const clientId =
   "954832916377-thvj35j5mogu49ktj08cnc5a2oj8rado.apps.googleusercontent.com";
 
 function Login() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [user, setUser] = useState("");
 
   const onSuccess = (res, e) => {

@@ -1,8 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import logo from "../logo.svg";
-import GoogleAuth from "../Components/googleAuth";
-import GoogleAuthNew from "../Components/googleAuth";
 import { gapi } from "gapi-script";
 import Login from "../Components/googleAuth";
 

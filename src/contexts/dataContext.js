@@ -4,15 +4,17 @@ export const DataContext = createContext();
 
 export function DataProvider({ children }) {
   const [book, setBook] = useState();
-  const [display, setDisplay] = useState([]);
-  const [isError, setError] = useState(false);
-  const [loader, setLoader] = useState(false);
+  const [display, setDisplay] = useState([]);   //displays an array of books searched from the API
+  const [isError, setError] = useState(false);  //error state
+  const [loader, setLoader] = useState(false);  // loading state
 
+  //contains value of the input book
   const handleBookSearchInput = (e) => {
     const book = e.target.value;
     setBook(book);
   };
 
+  // onSubmit, axios call is made to the api -> data is fetched and stored in display
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(book);
